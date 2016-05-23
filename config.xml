@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control  xmlns="http://www.askia.com/ADCSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.askia.com/ADCSchema http://www.askia.com/Downloads/dev/schemas/adc2.0/Config.xsd"
+          version="2.0.0"
+          askiaCompat="5.3.3">
+  <info>
+    <name>adc2-video</name>
+    <guid>65944930-52e0-45ab-9c32-6baa911efc6a</guid>
+    <version>1.0.0</version>
+    <date>2016-05-20</date>
+    <description><![CDATA[Insert video]]></description>
+    <company>Askia</company>
+    <author><![CDATA[Jérôme Duparc <jeromed@askia.com>]]></author>
+    <site>http://www.askia.com</site>
+    <helpURL></helpURL>
+    <categories>
+      <category>General</category>
+    </categories>
+    <style width="400" height="300" />
+    <constraints>
+      <constraint on="questions" chapter="true" single="false" multiple="false" numeric="false" date="false" open="false" requireParentLoop="false" />
+      <constraint on="controls" responseblock="false" label="true" textbox="false" checkbox="false" listbox="false" radiobutton="false" />
+      <constraint on="responses" max="*" min="*" />
+    </constraints>
+  </info>
+  <outputs defaultOutput="default">
+    <output id="default">
+      <description><![CDATA[Default output]]></description>
+      <condition><![CDATA[Browser.Support("javascript")]]></condition>
+      <content fileName="styles.css" type="css" mode="dynamic" position="head" />
+      <content fileName="default.html" type="html" mode="dynamic" position="placeholder" />
+      <content fileName="adc-video.js" type="javascript" mode="static" position="foot" />
+      <content fileName="Initializer.js" type="javascript" mode="dynamic" position="foot" />
+    </output>
+    <output id="fallback">
+      <description><![CDATA[fallback javascript not supported]]></description>
+      <condition><![CDATA[Not(Browser.Support("javascript"))]]></condition>
+      <content fileName="styles.css" type="css" mode="dynamic" position="head" />
+      <content fileName="default.html" type="html" mode="dynamic" position="placeholder" />
+    </output>
+  </outputs>
+  <properties>
+    <category id="General" name="General">
+      <property xsi:type="standardProperty" id="path" name="Path of the mp4 file" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Path of the mp4 file]]></description>
+        <value><![CDATA[??ResPath??yourfile.mp4]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="poster" name="Path of the poster" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[Path of the poster]]></description>
+        <value></value>
+      </property>
+      <property xsi:type="standardProperty" id="width" name="Width" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Width of the control]]></description>
+        <value><![CDATA[720px]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="height" name="Height" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Height of the control]]></description>
+        <value><![CDATA[405px]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="controlAlign" name="Control Alignment" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[The alignment of the control]]]></description>
+        <value><![CDATA[center]]></value>
+        <options>
+          <option value="left" text="Left" />
+          <option value="center" text="Center" />
+          <option value="right" text="Right" />
+        </options>
+      </property>
+      <property xsi:type="standardProperty" id="autoplay" name="Autoplay" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Autoplay the video]]></description>
+        <value><![CDATA[false]]></value>
+        <options>
+          <option value="true" text="Yes" />
+          <option value="false" text="No" />
+        </options>
+      </property>
+      <property xsi:type="standardProperty" id="controls" name="Show controls" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Show controls]]></description>
+        <value><![CDATA[true]]></value>
+        <options>
+          <option value="true" text="Yes" />
+          <option value="false" text="No" />
+        </options>
+      </property>
+      <property xsi:type="standardProperty" id="autosubmit" name="Autosubmit at the end of the video" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Autosubmit at the end of the video]]></description>
+        <value><![CDATA[0]]></value>
+        <options>
+          <option value="1" text="Yes" />
+          <option value="0" text="No" />
+        </options>
+      </property>
+    </category>
+    <category id="Fallback" name="Fallback">
+      <property xsi:type="standardProperty" id="textFallback" name="Fallback download text" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[Fallback download text]]></description>
+        <value><![CDATA[Try this page in a modern browser! Or you can download the video instead.]]></value>
+      </property>
+    </category>
+  </properties>
+</control>

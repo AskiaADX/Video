@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Video</title>
+    <style>
+        #adc_1, #adc_1 video, #adc_1 img {
+            width: 100%;
+            max-width: 720px;
+        }
+        #adc_1 {
+            margin: 0 auto;
+        }
+        #adc_1 video, #adc_1 img {
+            height: auto;
+        }
+        #adc_1 object {
+            width: 720px;
+            height: 405px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="adc_1" class="adc-video">
+    <video id="adc_1_video" src="./bigbuckbunny.mp4" controls="controls" preload="auto" autobuffer poster="./bigbuckbunny.png">
+	<source src="./bigbuckbunny.mp4" type="video/mp4" />
+	<object id="adc_1_object" data="./bigbuckbunny.mp4">
+		<param name="allowFullScreen" value="true" />
+		<param name="allowscriptaccess" value="always" />
+		<param name="src" value="./bigbuckbunny.mp4" />
+		<param name="allowfullscreen" value="true" />
+		<param name="type" value="video/mpeg" />
+		<param name="autostart" value="false" />
+        <param name="ShowControls" value="true" />
+		<img src="./bigbuckbunny.png" alt="bigbuckbunny" />
+		<a href="./bigbuckbunny.mp4">Try this page in a modern browser! Or you can download the video instead.</a>
+	</object>
+	</video>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+v1.0.0 - 2016/05/23 - Jérôme Duparc - first version of the control

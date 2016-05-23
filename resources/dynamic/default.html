@@ -1,0 +1,30 @@
+{%
+Dim poster = On(CurrentADC.PropValue("poster") <> "", "poster=\"" + CurrentADC.PropValue("poster") + "\"", "")
+Dim autoplay = On(CurrentADC.PropValue("autoplay") = "true", "autoplay=\"true\"", "")
+Dim controls = On(CurrentADC.PropValue("controls") = "true", "controls=\"controls\"", "")
+%}
+{% If (CurrentADC.PropValue("path").ToString().Right(3).ToLowerCase() <> "mp4") Then %}
+<div style="background:#FF0000;color:#FFFFFF;padding: 10px;font-weight:bold;text-align:center;">
+    This control is compatible with mp4 file.
+</div>
+{% EndIf %}
+{% If (CurrentADC.PropValue("path").ToString().Right(3).ToLowerCase() = "mp4") Then %}
+<div id="adc_{%= CurrentADC.InstanceId %}" class="adc-video">
+    <video id="adc_{%= CurrentADC.InstanceId %}_video" src="{%:= CurrentADC.PropValue("path") %}" {%:= controls %} {%:= autoplay %} preload="auto" autobuffer {%:= poster %}>
+	<source src="{%:= CurrentADC.PropValue("path") %}" type="video/mp4" />
+        <object id="adc_{%= CurrentADC.InstanceId %}_object" data="{%:= CurrentADC.PropValue("path") %}">
+		<param name="allowFullScreen" value="true" />
+		<param name="allowscriptaccess" value="always" />
+		<param name="src" value="{%:= CurrentADC.PropValue("path") %}" />
+		<param name="allowfullscreen" value="true" />
+		<param name="type" value="video/mpeg" />
+        <param name="autostart" value="{%:= CurrentADC.PropValue("autoplay") %}" />
+        <param name="ShowControls" value="{%:= CurrentADC.PropValue("controls") %}" />
+        {% If (CurrentADC.PropValue("poster") <> "") Then %}
+        <img src="{%:= CurrentADC.PropValue("poster") %}" />
+        {% EndIf %}
+		<a href="{%:= CurrentADC.PropValue("path") %}">{%:= CurrentADC.PropValue("textFallback") %}</a>
+	</object>
+	</video>
+</div>
+{% EndIf %}

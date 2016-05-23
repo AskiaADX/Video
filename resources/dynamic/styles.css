@@ -1,0 +1,24 @@
+{%
+Dim controlAlign
+If (CurrentADC.PropValue("controlAlign") = "center" ) Then
+    controlAlign = "0 auto"
+ElseIf (CurrentADC.PropValue("controlAlign") = "right" ) Then
+    controlAlign = "0 0 0 auto"
+Else
+    controlAlign = "0 auto 0 0"
+EndIf
+%}
+#adc_{%= CurrentADC.InstanceId %}, #adc_{%= CurrentADC.InstanceId %} video, #adc_{%= CurrentADC.InstanceId %} img {
+    width: 100%;
+    max-width: {%:= CurrentADC.PropValue("width")%};
+}
+#adc_{%= CurrentADC.InstanceId %} {
+    margin: {%= controlAlign %};
+}
+#adc_{%= CurrentADC.InstanceId %} video, #adc_{%= CurrentADC.InstanceId %} img {
+    height: auto;
+}
+#adc_{%= CurrentADC.InstanceId %} object {
+    width: {%:= CurrentADC.PropValue("width")%};
+    height: {%:= CurrentADC.PropValue("height")%};
+}

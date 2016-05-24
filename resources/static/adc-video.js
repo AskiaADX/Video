@@ -81,6 +81,7 @@
       this.javascriptSupport = options.javascriptSupport || 0;
       this.controls = options.controls || 0;
       this.autoplay = options.autoplay || 0;
+      this.android = options.android || 0;
        
       var myVideo = document.getElementById("adc_" + this.instanceId + "_video");
       var myObject = document.getElementById("adc_" + this.instanceId + "_object");
@@ -96,6 +97,13 @@
       if (this.autosubmit && this.javascriptSupport) {
         addEvent(myVideo,"ended",myHandler);
       }
+       
+       if (!this.controls && this.android) {
+           addEvent(myVideo,"click",function (e) {
+               var elt = (e.target) ? e.target : e.srcElement;
+               myVideo.play();   
+           });
+       }
    }
 
    /**

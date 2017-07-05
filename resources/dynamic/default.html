@@ -10,7 +10,7 @@ Dim controls = On(CurrentADC.PropValue("controls") = "true", "controls=\"control
 {% EndIf %}
 {% If (CurrentADC.PropValue("path").ToString().Right(3).ToLowerCase() = "mp4") Then %}
 <div id="adc_{%= CurrentADC.InstanceId %}" class="adc-video">
-    <video id="adc_{%= CurrentADC.InstanceId %}_video" src="{%:= CurrentADC.PropValue("path") %}" {%:= controls %} {%:= autoplay %} preload="auto" autobuffer {%:= poster %}>
+    <video id="adc_{%= CurrentADC.InstanceId %}_video" src="{%:= CurrentADC.PropValue("path") %}" {%:= controls %} {%:= autoplay %} preload="auto" autobuffer {%:= poster %} controlsList="nodownload">
 	<source src="{%:= CurrentADC.PropValue("path") %}" type="video/mp4" />
         <object id="adc_{%= CurrentADC.InstanceId %}_object" data="{%:= CurrentADC.PropValue("path") %}">
 		<param name="allowFullScreen" value="true" />

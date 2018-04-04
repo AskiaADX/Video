@@ -7,7 +7,7 @@
   <info>
     <name>Video</name>
     <guid>65944930-52e0-45ab-9c32-6baa911efc6a</guid>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
     <date>2016-05-20</date>
     <description><![CDATA[Insert video]]></description>
     <company>Askia</company>
@@ -18,8 +18,8 @@
       <category>General</category>
     </categories>
     <constraints>
-      <constraint on="questions" chapter="true" single="false" multiple="false" numeric="false" date="false" open="false" requireParentLoop="false" />
-      <constraint on="controls" responseblock="false" label="true" textbox="false" checkbox="false" listbox="false" radiobutton="false" />
+      <constraint on="questions" chapter="true" single="true" multiple="true" numeric="true" date="true" open="true" requireParentLoop="false" />
+      <constraint on="controls" responseblock="true" label="true" textbox="true" checkbox="true" listbox="true" radiobutton="true" />
       <constraint on="responses" max="*" min="*" />
     </constraints>
   </info>

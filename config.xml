@@ -19,7 +19,7 @@
     </categories>
     <constraints>
       <constraint on="questions" chapter="true" single="true" multiple="true" numeric="true" date="true" open="true" requireParentLoop="false" />
-      <constraint on="controls" responseblock="true" label="true" textbox="true" checkbox="true" listbox="true" radiobutton="true" />
+      <constraint on="controls" responseblock="false" label="true" textbox="false" checkbox="false" listbox="false" radiobutton="false" />
       <constraint on="responses" max="*" min="*" />
     </constraints>
   </info>

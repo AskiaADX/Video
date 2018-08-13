@@ -22,10 +22,18 @@ Dim controls = On(CurrentADC.PropValue("controls") = "true", " controls=\"contro
         <param name="autostart" value="{%:= CurrentADC.PropValue("autoplay") %}" />
         <param name="ShowControls" value="{%:= CurrentADC.PropValue("controls") %}" />
         {% If (CurrentADC.PropValue("poster") <> "") Then %}
-        <img src="{%:= CurrentADC.PropValue("poster") %}" />
+        <img src="{%:= CurrentADC.PropValue("poster") %}"/>
         {% EndIf %}
 		<a href="{%:= CurrentADC.PropValue("path") %}">{%:= CurrentADC.PropValue("textFallback") %}</a>
 	</object>
 	</video>
 </div>
 {% EndIf %}
+
+<script>
+window.addEventListener("load", function() {
+    var div = document.getElementById("adc_{%= CurrentADC.InstanceId %}");
+    var img = div.getElementsByTagName("img")[0];
+    img.alt = img.src.split("/")[img.src.split("/").length-1].split(".")[0];
+}, false);
+</script>

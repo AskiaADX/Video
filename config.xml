@@ -9,7 +9,8 @@
     <guid>65944930-52e0-45ab-9c32-6baa911efc6a</guid>
     <version>2.0.2</version>
     <date>2016-05-20</date>
-    <description><![CDATA[Insert video]]></description>
+    <description><![CDATA[Insert video
+		v2.0.3 - Added alt attribute to img]]></description>
     <company>Askia</company>
     <author><![CDATA[Jérôme Duparc <jeromed@askia.com>]]></author>
     <site>http://www.askia.com</site>

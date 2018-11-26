@@ -1,8 +1,9 @@
 {%
 Dim poster = On(CurrentADC.PropValue("poster") <> "", " poster=\"" + CurrentADC.PropValue("poster") + "\"", "")
 Dim autoplay = On(CurrentADC.PropValue("autoplay") = "true", " autoplay=\"true\"", "")
-Dim muted = On(CurrentADC.PropValue("muted") = "true", " muted", "")
-Dim controls = On(CurrentADC.PropValue("controls") = "true", " controls=\"controls\"", "")
+Dim muted = On(CurrentADC.PropValue("muted") = "true" or (Browser.OS = "iOS" and CurrentADC.PropValue("autoplay") = "true"), " muted", "")
+Dim controls = On(CurrentADC.PropValue("controls") = "true" or CurrentADC.PropValue("autoplay") = "false" or (Browser.OS = "iOS" and CurrentADC.PropValue("autoplay") = "true"), " controls=\"controls\"", "")
+Dim playsinline = On(Browser.OS = "iOS", " playsinline", "")
 %}
 {% If (CurrentADC.PropValue("path").ToString().Right(3).ToLowerCase() <> "mp4") Then %}
 <div style="background:#FF0000;color:#FFFFFF;padding: 10px;font-weight:bold;text-align:center;">
@@ -11,7 +12,7 @@ Dim controls = On(CurrentADC.PropValue("controls") = "true", " controls=\"contro
 {% EndIf %}
 {% If (CurrentADC.PropValue("path").ToString().Right(3).ToLowerCase() = "mp4") Then %}
 <div id="adc_{%= CurrentADC.InstanceId %}" class="adc-video">
-    <video id="adc_{%= CurrentADC.InstanceId %}_video" src="{%:= CurrentADC.PropValue("path") %}"{%:= controls %}{%:= autoplay %}{%:= muted %} preload="auto" autobuffer{%:= poster %} controlsList="nodownload">
+    <video{%:= playsinline %} id="adc_{%= CurrentADC.InstanceId %}_video" src="{%:= CurrentADC.PropValue("path") %}"{%:= controls %}{%:= autoplay %}{%:= muted %} preload="auto" autobuffer{%:= poster %} controlsList="nodownload">
 	<source src="{%:= CurrentADC.PropValue("path") %}" type="video/mp4" />
         <object id="adc_{%= CurrentADC.InstanceId %}_object" data="{%:= CurrentADC.PropValue("path") %}">
 		<param name="allowFullScreen" value="true" />

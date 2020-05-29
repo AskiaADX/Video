@@ -7,11 +7,12 @@
   <info>
     <name>Video</name>
     <guid>65944930-52e0-45ab-9c32-6baa911efc6a</guid>
-    <version>3.0.0</version>
-    <date>2016-05-20</date>
+    <version>3.0.1</version>
+    <date>2020-05-29</date>
     <description><![CDATA[Insert video
 		v2.0.3 - Added alt attribute to img
-		v2.0.4 - Added muted for iOS and autoplay]]></description>
+		v2.0.4 - Added muted for iOS and autoplay
+    v3.0.1 - img.src bug fix]]></description>
     <company>Askia</company>
     <author><![CDATA[Jérôme Duparc <jeromed@askia.com>]]></author>
     <site>http://www.askia.com</site>

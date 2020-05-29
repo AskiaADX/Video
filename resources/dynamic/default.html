@@ -35,6 +35,8 @@ Dim playsinline = On(Browser.OS = "iOS", " playsinline", "")
 window.addEventListener("load", function() {
     var div = document.getElementById("adc_{%= CurrentADC.InstanceId %}");
     var img = div.getElementsByTagName("img")[0];
-    img.alt = img.src.split("/")[img.src.split("/").length-1].split(".")[0];
+    if (img != null) {
+      img.alt = img.src.split("/")[img.src.split("/").length-1].split(".")[0];
+    }
 }, false);
 </script>

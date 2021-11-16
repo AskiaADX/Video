@@ -7,12 +7,13 @@
   <info>
     <name>Video</name>
     <guid>65944930-52e0-45ab-9c32-6baa911efc6a</guid>
-    <version>3.0.1</version>
+    <version>4.0.0</version>
     <date>2020-05-29</date>
     <description><![CDATA[Insert video
 		v2.0.3 - Added alt attribute to img
 		v2.0.4 - Added muted for iOS and autoplay
-    v3.0.1 - img.src bug fix]]></description>
+    v3.0.1 - img.src bug fix
+    v4.0.0 - added file type parameter]]></description>
     <company>Askia</company>
     <author><![CDATA[Jérôme Duparc <jeromed@askia.com>]]></author>
     <site>http://www.askia.com</site>
@@ -44,11 +45,11 @@
   </outputs>
   <properties>
     <category id="General" name="General">
-      <property xsi:type="standardProperty" id="path" name="Path of the mp4 file" type="string" mode="dynamic" require="true" visible="true">
+      <property xsi:type="standardProperty" id="path" name="Path of the mp4 file" type="file" mode="dynamic" require="true" visible="true">
         <description><![CDATA[Path of the mp4 file]]></description>
-        <value><![CDATA[??ResPath??yourfile.mp4]]></value>
+        <value><![CDATA[]]></value>
       </property>
-      <property xsi:type="standardProperty" id="poster" name="Path of the poster" type="string" mode="dynamic" require="false" visible="true">
+      <property xsi:type="standardProperty" id="poster" name="Path of the poster" type="file" mode="dynamic" require="false" visible="true">
         <description><![CDATA[Path of the poster]]></description>
         <value></value>
       </property>

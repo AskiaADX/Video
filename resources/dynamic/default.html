@@ -13,11 +13,11 @@ Dim playsinline = On(Browser.OS = "iOS", " playsinline", "")
 {% If (CurrentADC.PropValue("path").ToString().Right(3).ToLowerCase() = "mp4") Then %}
 <div id="adc_{%= CurrentADC.InstanceId %}" class="adc-video">
     <video{%:= playsinline %} id="adc_{%= CurrentADC.InstanceId %}_video" src="{%:= CurrentADC.PropValue("path") %}"{%:= controls %}{%:= autoplay %}{%:= muted %} preload="auto" autobuffer{%:= poster %} controlsList="nodownload">
-	<source src="{%:= CurrentADC.PropValue("path") %}" type="video/mp4" />
+	<source src="{%:= CurrentADC.Var("path") %}" type="video/mp4" />
         <object id="adc_{%= CurrentADC.InstanceId %}_object" data="{%:= CurrentADC.PropValue("path") %}">
 		<param name="allowFullScreen" value="true" />
 		<param name="allowscriptaccess" value="always" />
-		<param name="src" value="{%:= CurrentADC.PropValue("path") %}" />
+		<param name="src" value="{%:= CurrentADC.Var("path") %}" />
 		<param name="allowfullscreen" value="true" />
 		<param name="type" value="video/mpeg" />
         <param name="autostart" value="{%:= CurrentADC.PropValue("autoplay") %}" />

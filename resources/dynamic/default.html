@@ -1,20 +1,20 @@
 {%
-Dim poster = On(CurrentADC.PropValue("poster") <> "", " poster=\"" + CurrentADC.PropValue("poster") + "\"", "")
+Dim poster = On(CurrentADC.Var("poster") <> "", " poster=\"" + CurrentADC.Var("poster") + "\"", "")
 Dim autoplay = On(CurrentADC.PropValue("autoplay") = "true", " autoplay=\"true\"", "")
 Dim muted = On(CurrentADC.PropValue("muted") = "true" or (Browser.OS = "iOS" and CurrentADC.PropValue("autoplay") = "true"), " muted", "")
 Dim controls = On(CurrentADC.PropValue("controls") = "true" or CurrentADC.PropValue("autoplay") = "false" or (Browser.OS = "iOS" and CurrentADC.PropValue("autoplay") = "true"), " controls=\"controls\"", "")
 Dim playsinline = On(Browser.OS = "iOS", " playsinline", "")
 %}
-{% If (CurrentADC.PropValue("path").ToString().Right(3).ToLowerCase() <> "mp4") Then %}
+{% If (CurrentADC.Var("path").ToString().Right(3).ToLowerCase() <> "mp4") Then %}
 <div style="background:#FF0000;color:#FFFFFF;padding: 10px;font-weight:bold;text-align:center;">
     This control is compatible with mp4 file.
 </div>
 {% EndIf %}
-{% If (CurrentADC.PropValue("path").ToString().Right(3).ToLowerCase() = "mp4") Then %}
+{% If (CurrentADC.Var("path").ToString().Right(3).ToLowerCase() = "mp4") Then %}
 <div id="adc_{%= CurrentADC.InstanceId %}" class="adc-video">
-    <video{%:= playsinline %} id="adc_{%= CurrentADC.InstanceId %}_video" src="{%:= CurrentADC.PropValue("path") %}"{%:= controls %}{%:= autoplay %}{%:= muted %} preload="auto" autobuffer{%:= poster %} controlsList="nodownload">
+    <video{%:= playsinline %} id="adc_{%= CurrentADC.InstanceId %}_video" src="{%:= CurrentADC.Var("path") %}"{%:= controls %}{%:= autoplay %}{%:= muted %} preload="auto" autobuffer{%:= poster %} controlsList="nodownload">
 	<source src="{%:= CurrentADC.Var("path") %}" type="video/mp4" />
-        <object id="adc_{%= CurrentADC.InstanceId %}_object" data="{%:= CurrentADC.PropValue("path") %}">
+        <object id="adc_{%= CurrentADC.InstanceId %}_object" data="{%:= CurrentADC.Var("path") %}">
 		<param name="allowFullScreen" value="true" />
 		<param name="allowscriptaccess" value="always" />
 		<param name="src" value="{%:= CurrentADC.Var("path") %}" />
@@ -25,7 +25,7 @@ Dim playsinline = On(Browser.OS = "iOS", " playsinline", "")
         {% If (CurrentADC.PropValue("poster") <> "") Then %}
         <img src="{%:= CurrentADC.PropValue("poster") %}"/>
         {% EndIf %}
-		<a href="{%:= CurrentADC.PropValue("path") %}">{%:= CurrentADC.PropValue("textFallback") %}</a>
+		<a href="{%:= CurrentADC.Var("path") %}">{%:= CurrentADC.PropValue("textFallback") %}</a>
 	</object>
 	</video>
 </div>
